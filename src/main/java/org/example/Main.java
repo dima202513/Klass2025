@@ -14,5 +14,9 @@ public class Main {
             System.out.println("i = " + i);
         }
     }
+<<<<<<< HEAD
 }
 //hallo
+=======
+}
+>>>>>>> b49e304586fc8bc1efed2d4e5770fa58cbdcc9c2
