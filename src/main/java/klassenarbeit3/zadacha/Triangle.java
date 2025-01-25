@@ -1,4 +1,4 @@
-package klassenarbeit3;
+package klassenarbeit3.zadacha;
 
 public class Triangle extends Shape{
     private int side1;

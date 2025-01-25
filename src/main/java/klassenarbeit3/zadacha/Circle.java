@@ -1,4 +1,4 @@
-package klassenarbeit3;
+package klassenarbeit3.zadacha;
 
 public class Circle extends Shape{
     private int radius;

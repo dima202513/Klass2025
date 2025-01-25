@@ -1,10 +1,17 @@
-package klassenarbeit3.zadacha;
+package homezadacha2.AnimalIspravil;
 
 public class Animal {
-    private String name;
-    private String voice;
     private String food;
     private String location;
+
+    public Animal() {
+    }
+
+    public Animal(String food, String location) {
+        this.food = food;
+        this.location = location;
+    }
+
 
     public void setFood(String food) {
         this.food = food;
@@ -14,14 +21,6 @@ public class Animal {
         this.location = location;
     }
 
-    public Animal(String voice) {
-        this.voice = voice;
-    }
-
-    public String getVoice() {
-        return voice;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -29,12 +28,12 @@ public class Animal {
     public String getFood() {
         return food;
     }
-    public String getName() {
-        return name;
-    }
+
     public void makeNoise() {
         System.out.println("eto zivotnoe izdaet zvuk " + getVoice());
     }
+
+
 
     public void eat() {
         System.out.println("eto zivotnoe est " + getFood());
@@ -43,7 +42,12 @@ public class Animal {
     public void sleep() {
         System.out.println("eto zivotnoe spit " + getLocation());
     }
-
+    private String getVoice() {
+        return "издаёт звук";
+    }
+    public String getName() {
+        return "Animal";
+    }
 }
 //Создать класс Animal и расширяющие его классы Dog, Cat, Horse. Класс Animal содержит
 //        переменные food, location и методы makeNoise, eat, sleep. Метод makeNoise, например,
