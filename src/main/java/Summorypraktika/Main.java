@@ -1,12 +1,33 @@
 package Summorypraktika;
-//
-//public class Main {
-//    public static void main(String[] args) {
-//        Dog dog = new Dog();
-//        Cat cat = new Cat();
-//
-//    }
-//}
+
+public class Main {
+    public static void main(String[] args) {
+        Cat cat = new Cat("Sonya", 6, "Ginger");
+        Dog dog = new Dog("Boston", 5, "cocker spaniel");
+        Mouse mouse = new Mouse("Stuart little", 2);
+        Human human = new Human("richard", 34);
+        Robot robot = new Robot("R202");
+        Creature[] creatures = {cat, dog, robot, human, mouse};
+        AnimalWalker[] animalWalker = {human, robot};
+        Animal[] animal = {cat, dog};
+        MouseCatcher[] catCatcher = {cat, robot};
+        Animated[] animated = {cat, dog, human, mouse};
+
+        human.feed(cat);
+        human.feed(cat, dog, mouse);
+        human.feed(animal);
+        human.feed(dog);
+        System.out.println("----------------------");
+
+        greetings(creatures);
+    }
+
+    public static void greetings(Creature[] creatures) {
+        for (Creature creature : creatures) {
+            creature.sayHello();
+        }
+    }
+}
 
 //Создайте систему классов которая будет представлять собой жителей дома.
 //        Классы Cat, Dog, Mouse, Human, Robot. Абстракции придумать самостоятельно.

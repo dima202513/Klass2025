@@ -1,8 +1,27 @@
 package Summorypraktika;
 
-//public class Human extends {
+public class Human extends Animated implements AnimalWalker {
 
-//}
+    public Human(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void sayHello() {
+        System.out.println("hi! I am human; my name is " + getName());
+    }
+    public void feed(Animal... animals) {
+        for (Animal animal : animals) {
+            System.out.println(getName() + " feeds " + animal.getName());
+        }
+    }
+
+    @Override
+    public void walkAnimal(Animal animal) {
+        System.out.println(getName() + " walks with" + animal.getName());
+    animal.setHungry(true);
+    }
+}
 //Создайте систему классов которая будет представлять собой жителей дома.
 //        Классы Cat, Dog, Mouse, Human, Robot. Абстракции придумать самостоятельно.
 //

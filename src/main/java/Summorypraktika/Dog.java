@@ -1,23 +1,32 @@
-//package Summorypraktika;
+package Summorypraktika;
+
+public class Dog extends Animal {
+    private String breed;
+
+    public Dog(String name, int age, String breed) {
+        super(name, age);
+        this.breed = breed;
+    }
+
+
+    @Override
+    public void sayHello() {
+        System.out.println("bark! I am a dog of " + breed + " breed. My name is " + getName());
+    }
+
+    @Override
+    public void play(Creature another) {
+
+        if (another instanceof Cat) {
+            System.out.println("Dog!" + getName() + "barks. Cat " + another.getName() + " runs away");
+        } else {
+            super.play(another);
+        }
+    }
+}
+
+
 //
-//public class Dog extends Animal {
-//    private String breed;
-//
-//
-//    public Dog(String breed) {
-//        super(name, age);
-//        this.breed = breed;
-//    }
-//@Override
-//    public void play(Creature another) {
-//        System.out.println(thisName() + " playing with " + animal.getName());
-//    }
-//
-//    @Override
-//    public void sayHello() {
-//        System.out.println("Meow! I'm " + getAnimalType() + ". My name is " + getName());
-//    }
-//}
 //Создайте систему классов которая будет представлять собой жителей дома.
 //        Классы Cat, Dog, Mouse, Human, Robot. Абстракции придумать самостоятельно.
 //

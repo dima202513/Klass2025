@@ -1,6 +1,35 @@
 package Summorypraktika;
 
-public class Cat {
+public class Cat extends Animal implements MouseCatcher{
+    private String color;
+
+    public Cat(String name, int age, String color) {
+        super(name, age);
+        this.color = color;
+    }
+
+    @Override
+    public void sayHello() {
+        System.out.println("Meow! I am a " + color + " cat. my name is " + getName());
+    }
+
+    @Override
+    public void play(Creature another) {
+
+        if (another instanceof Dog) {
+//            System.out.println(String.format("Dog %s barks. Cat %s runs away", another.getName(), getName()));
+//            System.out.printf("Dog %s barks. Cat %s runs away%n", another.getName(), getName());
+
+            System.out.println("Dog " + another.getName() + "barks. Cat " + another.getName() + "runs away.");
+        }else {
+            super.play(another);};
+        }
+
+
+    @Override
+    public void catchMouse(Mouse mouse) {
+        System.out.println(getName() + "catches mouse " + mouse.getName());
+    }
 }
 //Создайте систему классов которая будет представлять собой жителей дома.
 //        Классы Cat, Dog, Mouse, Human, Robot. Абстракции придумать самостоятельно.

@@ -1,15 +1,28 @@
-//package Summorypraktika;
-//
-//public class Robot extends Creature implements AnimalWalker{
-//    public Robot(String name) {
-//        super(name);
-//    }
-//    @Override
-//    public void sayHello() {
-//        System.out.println("I'm robot. My name is " + name);
-//    }
-//
-//}
+package Summorypraktika;
+
+public class Robot extends Creature implements AnimalWalker, MouseCatcher{
+
+
+    public Robot(String name) {
+        super(name);
+    }
+
+    @Override
+    public void sayHello() {
+        System.out.println("I'm robot. My name is " + getName());
+    }
+
+    @Override
+    public void walkAnimal(Animal animal) {
+        System.out.println(getName() + " is " + animal.getName());
+        animal.setHungry(true);
+    }
+
+    @Override
+    public void catchMouse(Mouse mouse) {
+        System.out.println(getName() + " catches mouse " + mouse.getName());
+    }
+}
 //Создайте систему классов которая будет представлять собой жителей дома.
 //        Классы Cat, Dog, Mouse, Human, Robot. Абстракции придумать самостоятельно.
 //
