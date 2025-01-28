@@ -28,7 +28,7 @@ public class Main {
                         System.out.println("invalid cycle");
                 }
                 break;
-            case 2: // Вычисление факториала
+            case 2:
                 System.out.println("factorial");
                 switch (loopType) {
                     case 1:
@@ -49,7 +49,7 @@ public class Main {
         }
     }
 
-    // Методы для вычисления чисел Фибоначчи
+
     public static void fibonacciWhile(int n) {
         int a = 0, b = 1, count = 0;
         while (count < n) {
@@ -85,7 +85,7 @@ public class Main {
         System.out.println();
     }
 
-    // Методы для вычисления факториала
+
     public static void factorialWhile(int n) {
         int result = 1, i = 1;
         while (i <= n) {
