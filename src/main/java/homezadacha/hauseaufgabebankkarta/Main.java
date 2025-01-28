@@ -57,13 +57,13 @@ public class Main {
             card1.displayBalance();
             card1.deposit(500.0);
             card1.withdraw(300.0);
-            card1.displayBalanceInCurrency(0.013, "USD");
+            card1.displayBalanceInCurrency(0.93, "USD");
 
             Card card2 = new Card("Igor Ivanovich");
             card2.displayBalance();
             card2.deposit(300.0);
             card2.withdraw(70.0);
-            card2.displayBalanceInCurrency(0.85, "EUR");
+            card2.displayBalanceInCurrency(1.2, "EUR");
         }
 
 }
