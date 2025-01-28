@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Ввод данных
         System.out.println("give 3 numbers:");
         int algorithmId = scanner.nextInt();
         int loopType = scanner.nextInt();
