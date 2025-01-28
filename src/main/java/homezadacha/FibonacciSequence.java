@@ -41,7 +41,7 @@ public class FibonacciSequence {
     public String fibonacciSequenceFor() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            sb.append(sequence[i]).append(", ");
+            sb.append(sequence[i]).append(" ");
         }
         return sb.toString();
     }
@@ -50,7 +50,7 @@ public class FibonacciSequence {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (i < length) {
-            sb.append(sequence[i]).append(", ");
+            sb.append(sequence[i]).append(" ");
             i++;
         }
         return sb.toString();
@@ -60,7 +60,7 @@ public class FibonacciSequence {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         do {
-            sb.append(sequence[i]).append(", ");
+            sb.append(sequence[i]).append(" ");
             i++;
         } while (i < length);
         return sb.toString();
@@ -75,4 +75,3 @@ public class FibonacciSequence {
 //Написать конструктор с параметром и без параметров для этого класса. Не допускать возможность установки отрицательного значения length.
 
 //        Написать программу (отдельный класс с методом main) в котором создать объект класса FibonacciSequence и протестировать работу всех получившихся методов.
-//v
