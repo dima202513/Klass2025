@@ -1,72 +1,72 @@
 package homezadacha.hauseaufgabebankkarta;
 
 public class Main {
-    public static class Card {
+    public static void main(String[] args) {
+        String username;
+        double balance;
 
+        Atm atm = new Atm();
 
-        private String username;
-        private double balance;
+        DebitCard debitCard = new DebitCard("Vasilij Petrov", 1000.0);
+        CreditCard creditCard = new CreditCard("Igor Ivanovich", 500.0);
 
-        public Card(String username, double balance) {
-            this.username = username;
-            this.balance = balance;
-        }
+        atm.displayBalance(debitCard);
+        atm.displayBalanceInCurrency();
+        atm.withdraw(debitCard, 1200.0);
+        atm.withdraw(debitCard, 500.0);
+        atm.displayBalance(debitCard);
 
-        public Card(String username) {
-            this(username, 0);
-        }
-
-
-        public void deposit(double amount) {
-            if (amount > 0) {
-                balance += amount;
-                System.out.println("balance up " + amount);
-            } else {
-                System.out.println(" must summa > 0 ");
-            }
-        }
-
-
-        public void withdraw(double amount) {
-            if (amount > 0 && amount <= balance) {
-                balance -= amount;
-                System.out.println("withdraw from account " + amount);
-            } else if (amount > balance) {
-                System.out.println("not enough in account ");
-            } else {
-                System.out.println("must summe > 0 ");
-            }
-        }
-
-        public void displayBalance() {
-            System.out.println("current balance " + balance);
-        }
-
-        public void displayBalanceInCurrency(double exchangeRate, String currencyName) {
-            if (exchangeRate > 0) {
-                double convertedBalance = balance * exchangeRate;
-                System.out.println("ballance in currency " + currencyName + "--" + convertedBalance);
-            } else {
-                System.out.println("must be > 0 " );
-            }
-        }
-
+        atm.displayBalance(creditCard);
+        atm.withdraw(creditCard, 700.0);
+        atm.displayBalance(creditCard);
     }
-        public static void main(String[] args) {
-            Card card1 = new Card("Vasilij Petrov ", 1000.0);
-            card1.displayBalance();
-            card1.deposit(500.0);
-            card1.withdraw(300.0);
-            card1.displayBalanceInCurrency(0.93, "USD");
 
-            Card card2 = new Card("Igor Ivanovich");
-            card2.displayBalance();
-            card2.deposit(300.0);
-            card2.withdraw(70.0);
-            card2.displayBalanceInCurrency(1.2, "EUR");
-        }
+
+//        public Card(String username, double balance) {
+//            this.username = username;
+//            this.balance = balance;
+//        }
+//
+//        public Card(String username) {
+//            this(username, 0);
+//        }
+
+//    public void deposit(double amount) {
+//        if (amount > 0) {
+//            balance += amount;
+//            System.out.println("balance up " + amount);
+//        } else {
+//            System.out.println(" must summa > 0 ");
+//        }
+//    }
+
+//    public void displayBalance() {
+//        System.out.println("current balance " + balance);
+//    }
+
+//    public void displayBalanceInCurrency(double exchangeRate, String currencyName) {
+//        if (exchangeRate > 0) {
+//            double convertedBalance = balance * exchangeRate;
+//            System.out.println("ballance in currency " + currencyName + "--" + convertedBalance);
+//        } else {
+//            System.out.println("must be > 0 ");
+//        }
+//    }
 
 }
+
+
+//        Card card1 = new Card("Vasilij Petrov ", 1000.0);
+//        card1.displayBalance();
+//        card1.deposit(500.0);
+//        card1.withdraw(300.0);
+//        card1.displayBalanceInCurrency(0.93, "USD");
+//
+//        Card card2 = new Card("Igor Ivanovich");
+//        card2.displayBalance();
+//        card2.deposit(300.0);
+//        card2.withdraw(70.0);
+//        card2.displayBalanceInCurrency(1.2, "EUR");
 
 
 //Домашнее, на базе прошлой домашней работы

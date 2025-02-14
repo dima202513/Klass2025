@@ -1,12 +1,32 @@
 package homezadacha.hauseaufgabebankkarta;
 
-public class Card {
+public abstract class Card {
 
     protected String username;
     protected double balance;
 
     public Card(String username, double balance) {
         this.username = username;
+        this.balance = balance;
+    }
+
+    public Card() {
+
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -22,6 +42,7 @@ public class Card {
             System.out.println("summa > 0");
         }
     }
+
     public void withdraw(double amount) {
         if (amount > 0) {
             balance -= amount;
@@ -30,27 +51,22 @@ public class Card {
             System.out.println("summa > 0 ");
         }
     }
-    public void displayBalance(){
+
+    public void displayBalance() {
         System.out.println(username + "balance now " + balance);
     }
-    public static void main(String[] args) {
-        Atm atm = new Atm();
-
-        DebitCard debitCard = new DebitCard("Василий Петров", 1000.0);
-        CrediitCard creditCard = new CrediitCard("Игорь Иванович", 500.0);
-
-        atm.displayBalance(debitCard);
-        atm.withdraw(debitCard, 1200.0);
-        atm.withdraw(debitCard, 500.0);
-        atm.displayBalance(debitCard);
-
-        atm.displayBalance(creditCard);
-        atm.withdraw(creditCard, 700.0);
-        atm.displayBalance(creditCard);
+    public void displayBalanceInCurrency(double exchangeRate, String currency) {
+        if (exchangeRate > 0) {
+            double convertedBalance = balance * exchangeRate;
+            System.out.println(username + " balance in " + currency + ": " + convertedBalance);
+        } else {
+            System.out.println("Exchange rate must be greater than 0");
+        }
     }
+
 }
 
-
+//Добавьте дополнительный метод для отображения баланса в различных валютах, передавая курс валюты
 //Сделать класс Card родителем,
 //Определите два подкласса (наследника) CreditCard и DebitCard которые реализуют соотв. поведение :
 //        •    дебетовая карта: не допускает снятие денег (уменьшение баланса) если это приводит к
