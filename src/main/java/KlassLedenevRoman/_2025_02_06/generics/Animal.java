@@ -1,4 +1,4 @@
-package org.example._2025_02_06.generics;
+package KlassLedenevRoman._2025_02_06.generics;
 
 public class Animal {
 

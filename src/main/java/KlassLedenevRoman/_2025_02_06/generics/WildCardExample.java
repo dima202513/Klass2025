@@ -2,7 +2,6 @@ package KlassLedenevRoman._2025_02_06.generics;
 
 import Homework.homezadacha2.AnimalIspravil.Animal;
 import Homework.homezadacha2.AnimalIspravil.Dog;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +10,13 @@ public class WildCardExample {
         Animal[] animalsArr = {new Animal(), new Animal()};
         testArray(animalsArr);
 
-        Dog[] dogsArr = new Dog[]{new Dog(new Dog("rud", "gelb", 4, "auf"), new Dog("tur", "black", 6, "auff"), new Dog("tur","black", 6,"auff"), new Dog("tur","black", 6,"auff")};
+        Dog[] dogsArr = {new Dog(), new Dog()};
         testArray(dogsArr);
 
         Object[] objectsArr = dogsArr;
 
         List<Animal> animalsList = new ArrayList<>(List.of(new Animal(), new Animal()));
-        List<Dog> dogsList = new ArrayList<>(List.of(new Dog("rud", "gelb", 4, "auf"), new Dog("tur","black", 6,"auff")));
+        List<Dog> dogsList = new ArrayList<>(List.of(new Dog(), new Dog()));
         List<Object> objectList = new ArrayList<>(List.of(new Object(), new Object()));
 
         ArrayList<String> strings = new ArrayList<>();
