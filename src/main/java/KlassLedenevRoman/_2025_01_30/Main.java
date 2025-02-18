@@ -1,6 +1,8 @@
 package KlassLedenevRoman._2025_01_30;
 
-import org.example._2025_01_24.Cat;
+
+
+import KlassLedenevRoman._2025_01_24.Cat;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

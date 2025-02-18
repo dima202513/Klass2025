@@ -1,4 +1,4 @@
-package org.example._2025_01_31.middle_earth_battle;
+package KlassLedenevRoman._2025_01_31.middle_earth_battle;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package org.example._2025_02_04.collections;
+package KlassLedenevRoman._2025_02_04.collections;
 
 public class Main {
     public static void main(String[] args) {

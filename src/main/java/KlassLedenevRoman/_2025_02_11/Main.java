@@ -1,4 +1,4 @@
-package org.example._2025_02_11;
+package KlassLedenevRoman._2025_02_11;
 
 import java.util.Arrays;
 

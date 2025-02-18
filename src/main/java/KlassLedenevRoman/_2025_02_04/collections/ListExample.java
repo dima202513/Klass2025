@@ -17,7 +17,7 @@ public class ListExample {
         list.add(10);
         list.add("8");
         list.add(7);
-        list.add(new org.example._2025_02_04.collections.Person("1", "2", 3));
+        list.add(new Person("1", "2", 3));
 
 /*
         System.out.println(list);
