@@ -1,4 +1,4 @@
-package Praktika_s_Yrij_homework.praktikJurij10022025;
+package Homework.Praktika_s_Yrij_homework.praktikJurij10022025;
 
 import java.util.*;
 import java.util.function.Consumer;

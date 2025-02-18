@@ -1,4 +1,4 @@
-package Praktika_s_Yrij_homework.summary07022025222;
+package Homework.Praktika_s_Yrij_homework.summary07022025222;
 
 import java.util.Objects;
 

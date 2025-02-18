@@ -1,4 +1,4 @@
-package Praktika_s_Yrij_homework.praktikJurij10022025;
+package Homework.Praktika_s_Yrij_homework.praktikJurij10022025;
 
 public class CustomListApp {
     public static void main(String[] args) {

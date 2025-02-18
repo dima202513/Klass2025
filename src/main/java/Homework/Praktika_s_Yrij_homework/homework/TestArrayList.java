@@ -1,4 +1,4 @@
-package Praktika_s_Yrij_homework.homework;
+package Homework.Praktika_s_Yrij_homework.homework;
 
 import java.util.*;
 
@@ -16,11 +16,11 @@ class InvalidIndexException extends RuntimeException {
     }
 }
 
-public class BoundedArrayList<E> implements List<E> {
+public class TestArrayList<E> implements List<E> {
     private final Object[] elements;
     private int size = 0;
 
-    public BoundedArrayList(int capacity) {
+    public TestArrayList(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException("Capacity must be greater than zero");
         }
@@ -64,19 +64,12 @@ public class BoundedArrayList<E> implements List<E> {
 
     @Override
     public Object[] toArray() {
-        return Arrays.copyOf(elements, size);
+        return new Object[0];
     }
 
     @Override
     public <T> T[] toArray(T[] a) {
-        if (a.length < size) {
-            return (T[]) Arrays.copyOf(elements, size, a.getClass());
-        }
-        System.arraycopy(elements, 0, a, 0, size);
-        if (a.length > size) {
-            a[size] = null;
-        }
-        return a;
+        return null;
     }
 
     @Override
@@ -109,27 +102,27 @@ public class BoundedArrayList<E> implements List<E> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return c.stream().allMatch(this::contains);
+        return false;
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        throw new UnsupportedOperationException();
+        return false;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        throw new UnsupportedOperationException();
+        return false;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        throw new UnsupportedOperationException();
+        return false;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        throw new UnsupportedOperationException();
+        return false;
     }
 
     @Override
@@ -186,17 +179,17 @@ public class BoundedArrayList<E> implements List<E> {
 
     @Override
     public ListIterator<E> listIterator() {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override
     public ListIterator<E> listIterator(int index) {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
-        throw new UnsupportedOperationException();
+        return List.of();
     }
 
     @Override
@@ -222,7 +215,7 @@ public class BoundedArrayList<E> implements List<E> {
     }
 
     public static void main(String[] args) {
-        BoundedArrayList<Integer> list = new BoundedArrayList<>(5);
+        TestArrayList<Integer> list = new TestArrayList<>(5);
         list.add(1);
         list.add(2);
         list.add(3);
@@ -235,5 +228,3 @@ public class BoundedArrayList<E> implements List<E> {
         System.out.println("After adding more elements: " + list);
     }
 }
-
-

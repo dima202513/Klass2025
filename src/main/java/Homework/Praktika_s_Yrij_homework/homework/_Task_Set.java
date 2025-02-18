@@ -1,4 +1,4 @@
-package Praktika_s_Yrij_homework.homework;
+package Homework.Praktika_s_Yrij_homework.homework;
 
 import java.util.HashSet;
 import java.util.Set;
