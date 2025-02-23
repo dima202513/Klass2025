@@ -1,24 +1,20 @@
 package Homework.homezadacha.hauseaufgabebankkarta;
 
-public class Atm extends Card {
-    public Atm(Card card) {
-        this.card = card;
-    }
-
-    public Atm(String username, double balance) {
-        super(username, balance);
-    }
-
-    private Card card; // Поле для хранения карты
-
-    public Atm() {
-
-    }
+public class Atm {
+    private Card card;
 
     public void setCard(Card card) {
         this.card = card;
+        System.out.println("Card " + card.getUsername() + " Go");
     }
-
+    public void removeCard() {
+        if (card != null) {
+            System.out.println("Card " + card.getUsername() + " is off");
+            card = null;
+        } else {
+            System.out.println("no Card.");
+        }
+    }
     public void withdraw(double amount) {
         if (card == null) {
             System.out.println("enter karte");
@@ -26,30 +22,24 @@ public class Atm extends Card {
         }
         card.withdraw(amount);
     }
-
-    public void removeCard() {
-        this.card = null;
-        System.out.println("karte is off.");
-    }
-
-
-    public void deposit(Card card, double amount) {
+    public void deposit(double amount) {
+        if (card == null) {
+            System.out.println("please Card");
+            return;
+        }
         card.deposit(amount);
     }
 
-    public void withdraw(Card card, double amount) {
-        card.withdraw(amount);
-    }
-
-    public void displayBalance(Card card) {
+    public void displayBalance() {
+        if (card == null) {
+            System.out.println("please Card");
+            return;
+        }
         card.displayBalance();
     }
-
-    @Override
-    public void displayBalanceInCurrency(double exchangeRate, String currency) {
-        super.displayBalanceInCurrency(exchangeRate, currency);
     }
 
-    public void displayBalanceInCurrency() {
-    }
-}
+
+
+
+

@@ -2,23 +2,24 @@ package Homework.homezadacha.hauseaufgabebankkarta;
 
 public class Main {
     public static void main(String[] args) {
-        String username;
-        double balance;
 
         Atm atm = new Atm();
 
         DebitCard debitCard = new DebitCard("Vasilij Petrov", 1000.0);
         CreditCard creditCard = new CreditCard("Igor Ivanovich", 500.0);
 
-        atm.displayBalance(debitCard);
-        atm.displayBalanceInCurrency();
-        atm.withdraw(debitCard, 1200.0);
-        atm.withdraw(debitCard, 500.0);
-        atm.displayBalance(debitCard);
+        atm.setCard(debitCard);
+        atm.displayBalance();
+        atm.withdraw(1200.0);
+        atm.withdraw(500.0);
+        atm.displayBalance();
+        atm.removeCard();
 
-        atm.displayBalance(creditCard);
-        atm.withdraw(creditCard, 700.0);
-        atm.displayBalance(creditCard);
+        atm.setCard(creditCard);
+        atm.displayBalance();
+        atm.withdraw(700.0);
+        atm.displayBalance();
+        atm.removeCard();
     }
 
 

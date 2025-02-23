@@ -1,7 +1,6 @@
 package Homework.homezadacha.hauseaufgabebankkarta;
 
 public abstract class Card {
-
     protected String username;
     protected double balance;
 
@@ -10,28 +9,12 @@ public abstract class Card {
         this.balance = balance;
     }
 
-    public Card() {
-
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public double getBalance() {
         return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public Card(String username) {
-        this(username, 0);
     }
 
     public void deposit(double amount) {
@@ -51,7 +34,7 @@ public abstract class Card {
             System.out.println("summa > 0 ");
         }
     }
-
+//
     public void displayBalance() {
         System.out.println(username + "balance now " + balance);
     }

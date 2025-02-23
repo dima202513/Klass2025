@@ -10,17 +10,17 @@ import static Homework.zadachi_na_dom.Praktika3.findAllMultiple;
 import static Homework.zadachi_na_dom.Praktika3.findMaxLength;
 import static PractikLedenevRoman.klassenarbeit2.Work.findMax;
 
-
-public class Task_ArrayList {
-    public static void main(String[] args) {
-
-    }
-
-    private static boolean isSorted(List<Integer> integers) {
-    }
-
-    private static boolean findSum(List<Integer> integers) {
-        return false;
-    }
-
-}
+//
+//public class Task_ArrayList {
+//    public static void main(String[] args) {
+//
+//    }
+//
+//    private static boolean isSorted(List<Integer> integers) {
+//    }
+//
+//    private static boolean findSum(List<Integer> integers) {
+//        return false;
+//    }
+//
+//}
