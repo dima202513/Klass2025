@@ -2,20 +2,6 @@ package Homework.Praktika_s_Yrij_homework.homework;
 
 import java.util.*;
 
-// Исключение при попытке добавить элемент в заполненный список
-class ListFullException extends RuntimeException {
-    public ListFullException(String message) {
-        super(message);
-    }
-}
-
-// Исключение при попытке доступа к невалидному индексу
-class InvalidIndexException extends RuntimeException {
-    public InvalidIndexException(String message) {
-        super(message);
-    }
-}
-
 public class TestArrayList<E> implements List<E> {
     private final Object[] elements;
     private int size = 0;

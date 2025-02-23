@@ -34,4 +34,15 @@ public class Customer {
     public boolean isEmailConfirmed() {
         return isEmailConfirmed;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", country='" + country + '\'' +
+                ", bonusAmount=" + bonusAmount +
+                ", isEmailConfirmed=" + isEmailConfirmed +
+                '}';
+    }
 }

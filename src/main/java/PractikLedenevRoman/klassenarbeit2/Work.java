@@ -11,7 +11,7 @@ public class Work {
         System.out.println("findMax: " + max);
     }
 
-    public static int findMax(List<Integer> array) {
+    public static int findMax(int[] array) {
         int max = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > max) {

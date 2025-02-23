@@ -27,12 +27,13 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return indexOf(o) >= 0 ;
+
     }
 
     @Override
     public Iterator iterator() {
-        return null;
+        return new Itr();
     }
 
     @Override
@@ -96,22 +97,37 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public void clear() {
-
+        for (int i = 0; i < size; i++) {
+            elementData[i] = null;
+        }
+        size = 0;
     }
 
     @Override
     public E get(int index) {
-        return null;
+        return (E) elementData[index];
     }
 
     @Override
     public E set(int index, Object element) {
-        return null;
+        E old = (E)elementData[index];
+        elementData[index] = element;
+        return old;
     }
 
     @Override
     public void add(int index, Object element) {
+        if (size == maxSize) {
+            throw new IllegalArgumentException("List is full. The maximum capacity has been reached.");
+        }
+        if (size == elementData.length) {
+            elementData = grow();
 
+        }
+        for (int i = size - 1; i >= index; i--) {
+            elementData[i+1] = elementData[i];
+        }
+        elementData[index] = element;
     }
 
     @Override
@@ -145,7 +161,20 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        if (o == null) {
+            for (int i = size -1; i >= 0; i--) {
+                if (elementData[i] == null){
+                    return i;
+                }
+            }
+        }else{
+            for (int i = size -1; i >= 0; i--) {
+                if (o.equals(elementData[i])){
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     @Override
