@@ -1,11 +1,10 @@
 package Homework.Homezadacha_Metod;
 
-
 import java.util.*;
 
-public class MyArrayList {
+public class MyArrayList1 {
 
-    public class TestArrayList<E> implements List<E> {
+    public static class TestArrayList<E> implements List<E> {
         private final Object[] elements;
         private int size = 0;
 
@@ -48,35 +47,42 @@ public class MyArrayList {
                     }
                     return getElement(cursor++);
                 }
+
+                @Override
+                public void remove() {
+                    if (cursor <= 0) {
+                        throw new IllegalStateException("next() should be called before remove()");
+                    }
+                    TestArrayList.this.remove(--cursor);
+                }
             };
         }
+
         @Override
         public boolean remove(Object o) {
-            if (o == null) {
-                for (int i = 0; i < size; i++) {
-                    if (elements[i] == null) {
-                        remove(i);
-                        return true;
-                    }
-                }
-            } else {
-                for (int i = 0; i < size; i++) {
-                    if (o.equals(elements[i])) {
-                        remove(i);
-                        return true;
-                    }
-                }
+            int index = indexOf(o);
+            if (index != -1) {
+                remove(index);
+                return true;
             }
             return false;
         }
+
         @Override
         public Object[] toArray() {
-            return new Object[0];
+            return Arrays.copyOf(elements, size);
         }
 
         @Override
         public <T> T[] toArray(T[] a) {
-            return null;
+            if (a.length < size) {
+                return (T[]) Arrays.copyOf(elements, size, a.getClass());
+            }
+            System.arraycopy(elements, 0, a, 0, size);
+            if (a.length > size) {
+                a[size] = null;
+            }
+            return a;
         }
 
         @Override
@@ -99,17 +105,9 @@ public class MyArrayList {
             size++;
         }
 
-//        @Override
-//        public boolean remove(Object o) {
-//            int index = indexOf(o);
-//            if (index == -1) return false;
-//            remove(index);
-//            return true;
-//        }
-
         @Override
         public boolean containsAll(Collection<?> c) {
-            return false;
+            return c.stream().allMatch(this::contains);
         }
 
         @Override
@@ -196,7 +194,7 @@ public class MyArrayList {
 
         @Override
         public List<E> subList(int fromIndex, int toIndex) {
-            return List.of();
+            return null;
         }
 
         @Override
@@ -220,19 +218,31 @@ public class MyArrayList {
         private E getElement(int index) {
             return (E) elements[index];
         }
+    }
 
-        public void main(String[] args) {
-            TestArrayList<Integer> list = new TestArrayList<>(5);
-            list.add(1);
-            list.add(2);
-            list.add(3);
-            System.out.println("List: " + list);
-            list.remove(1);
-            System.out.println("After removal: " + list);
-            list.add(4);
-            list.add(5);
-            list.add(6);
-            System.out.println("After adding more elements: " + list);
+    static class ListFullException extends RuntimeException {
+        public ListFullException(String message) {
+            super(message);
         }
+    }
+
+    static class InvalidIndexException extends RuntimeException {
+        public InvalidIndexException(String message) {
+            super(message);
+        }
+    }
+
+    public static void main(String[] args) {
+        TestArrayList<Integer> list = new TestArrayList<>(5);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        System.out.println("List: " + list);
+        list.remove(1);
+        System.out.println("After removal: " + list);
+        list.add(4);
+        list.add(5);
+        list.add(6);
+        System.out.println("After adding more elements: " + list);
     }
 }
