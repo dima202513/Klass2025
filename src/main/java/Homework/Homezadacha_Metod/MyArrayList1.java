@@ -5,7 +5,7 @@ import java.util.*;
 public class MyArrayList1 {
 
     public static class TestArrayList<E> implements List<E> {
-        private final Object[] elements;
+        private Object[] elements;
         private int size = 0;
 
         public TestArrayList(int capacity) {
@@ -34,6 +34,7 @@ public class MyArrayList1 {
         public Iterator<E> iterator() {
             return new Iterator<E>() {
                 private int cursor = 0;
+                private int lastReturnedIndex = -1;  // Track the last returned index
 
                 @Override
                 public boolean hasNext() {
@@ -45,15 +46,18 @@ public class MyArrayList1 {
                     if (!hasNext()) {
                         throw new NoSuchElementException();
                     }
+                    lastReturnedIndex = cursor;
                     return getElement(cursor++);
                 }
 
                 @Override
                 public void remove() {
-                    if (cursor <= 0) {
+                    if (lastReturnedIndex == -1) {
                         throw new IllegalStateException("next() should be called before remove()");
                     }
-                    TestArrayList.this.remove(--cursor);
+                    TestArrayList.this.remove(lastReturnedIndex);
+                    cursor = lastReturnedIndex;  // Move the cursor back to last removed index
+                    lastReturnedIndex = -1;
                 }
             };
         }
@@ -88,7 +92,9 @@ public class MyArrayList1 {
         @Override
         public boolean add(E e) {
             if (size >= elements.length) {
-                throw new ListFullException("List is full. Cannot add new element.");
+                // Увеличиваем ёмкость массива на 1.5 раза
+                int newCapacity = elements.length + (elements.length / 2);
+                elements = Arrays.copyOf(elements, newCapacity);
             }
             elements[size++] = e;
             return true;
@@ -98,7 +104,8 @@ public class MyArrayList1 {
         public void add(int index, E element) {
             checkIndexForAdd(index);
             if (size >= elements.length) {
-                throw new ListFullException("List is full. Cannot add new element.");
+                int newCapacity = elements.length + (elements.length / 2);
+                elements = Arrays.copyOf(elements, newCapacity);
             }
             System.arraycopy(elements, index, elements, index + 1, size - index);
             elements[index] = element;
@@ -112,22 +119,43 @@ public class MyArrayList1 {
 
         @Override
         public boolean addAll(Collection<? extends E> c) {
-            return false;
+            for (E e : c) {
+                add(e);
+            }
+            return true;
         }
 
         @Override
         public boolean addAll(int index, Collection<? extends E> c) {
-            return false;
+            checkIndexForAdd(index);
+            for (E e : c) {
+                add(index++, e);
+            }
+            return true;
         }
 
         @Override
         public boolean removeAll(Collection<?> c) {
-            return false;
+            boolean modified = false;
+            for (Object o : c) {
+                while (remove(o)) {
+                    modified = true;
+                }
+            }
+            return modified;
         }
 
         @Override
         public boolean retainAll(Collection<?> c) {
-            return false;
+            boolean modified = false;
+            for (int i = 0; i < size; i++) {
+                if (!c.contains(elements[i])) {
+                    remove(i);
+                    modified = true;
+                    i--; // Adjust the index after removal
+                }
+            }
+            return modified;
         }
 
         @Override
