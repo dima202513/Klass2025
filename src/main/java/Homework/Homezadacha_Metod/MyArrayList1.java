@@ -2,18 +2,27 @@ package Homework.Homezadacha_Metod;
 
 import java.util.*;
 
+import Homework.Homezadacha_Metod.InvalidIndexException;
+import Homework.Homezadacha_Metod.ListFullException;
+
 public class MyArrayList1 {
 
     public static class TestArrayList<E> implements List<E> {
+
+        private static final int DEFAULT_CAPACITY = 10;
         private Object[] elements;
         private int size = 0;
 
         public TestArrayList(int capacity) {
-            if (capacity <= 0) {
+            if (capacity > 0) {
+                elements = new Object[capacity];
+            } else if (capacity == 0) {
+                elements = new Object[DEFAULT_CAPACITY];
+            } else {
                 throw new IllegalArgumentException("Capacity must be greater than zero");
             }
-            this.elements = new Object[capacity];
         }
+
 
         @Override
         public int size() {
@@ -152,7 +161,7 @@ public class MyArrayList1 {
                 if (!c.contains(elements[i])) {
                     remove(i);
                     modified = true;
-                    i--; // Adjust the index after removal
+                    i--;
                 }
             }
             return modified;
@@ -261,7 +270,7 @@ public class MyArrayList1 {
     }
 
     public static void main(String[] args) {
-        TestArrayList<Integer> list = new TestArrayList<>(5);
+        TestArrayList<Integer> list = new TestArrayList<>(10);
         list.add(1);
         list.add(2);
         list.add(3);
@@ -274,3 +283,6 @@ public class MyArrayList1 {
         System.out.println("After adding more elements: " + list);
     }
 }
+
+
+
