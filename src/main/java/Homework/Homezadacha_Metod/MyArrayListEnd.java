@@ -67,22 +67,7 @@ public class MyArrayListEnd<E> implements List<E> {
 //        return Arrays.copyOf(elementData, newLength);
     }
 
-    //
-//    @Override
-//    public boolean add(E o) {
-//        if (size == maxSize) {
-//            throw new ListFullException("List is full. The maximum capacity has been reached.");
-//        }
-//        ensureCapacity();
-//        elementData[size++] = o;
-//        return true;
-//    }
-//    private void ensureCapacity() {
-//        if (size == elementData.length) {
-//            int newCapacity = Math.min(maxSize, elementData.length * 3 / 2 + 1);
-//            elementData = Arrays.copyOf(elementData, newCapacity);
-//        }
-//    }
+
     @Override
     public boolean remove(Object o) {
         if (o == null) {
@@ -102,15 +87,6 @@ public class MyArrayListEnd<E> implements List<E> {
         }
         return false;
     }
-//    @Override
-//    public boolean remove(Object o) {
-//        int index = indexOf(o);
-//        if (index >= 0) {
-//            remove(index);
-//            return true;
-//        }
-//        return false;
-//    }
 
     @Override
     public boolean containsAll(Collection<?> c) {
@@ -144,11 +120,6 @@ public class MyArrayListEnd<E> implements List<E> {
         }
         size = 0;
     }
-//    @Override
-//    public void clear() {
-//        Arrays.fill(elementData, 0, size, null);
-//        size = 0;
-//    }
 
     @Override
     public E get(int index) {
@@ -166,6 +137,7 @@ public class MyArrayListEnd<E> implements List<E> {
 
     @Override
     public void add(int index, Object element) {
+        checkIndexForAdd(index);
         if (size == maxSize) {
             throw new ListFullException("List is full. The maximum capacity has been reached.");
         }
@@ -179,19 +151,9 @@ public class MyArrayListEnd<E> implements List<E> {
         elementData[index] = element;
     }
 
-    //    @Override
-//    public void add(int index, E element) {
-//        checkIndexForAdd(index);
-//        if (size == maxSize) {
-//            throw new ListFullException("List is full. The maximum capacity has been reached.");
-//        }
-//        ensureCapacity();
-//        System.arraycopy(elementData, index, elementData, index + 1, size - index);
-//        elementData[index] = element;
-//        size++;
-//    }
     @Override
     public E remove(int index) {
+        checkIndex(index);
         Object removingObject = elementData[index];
         for (int i = index; i < size - 1; i++) {
             elementData[i] = elementData[i + 1];
@@ -201,14 +163,6 @@ public class MyArrayListEnd<E> implements List<E> {
         return (E) removingObject;
     }
 
-    //    @Override
-//    public E remove(int index) {
-//        checkIndex(index);
-//        E removed = (E) elementData[index];
-//        System.arraycopy(elementData, index + 1, elementData, index, size - index - 1);
-//        elementData[--size] = null;
-//        return removed;
-//    }
     @Override
     public int indexOf(Object o) {
         if (o == null) {
@@ -227,15 +181,6 @@ public class MyArrayListEnd<E> implements List<E> {
         return -1;
     }
 
-    //    @Override
-//    public int indexOf(Object o) {
-//        for (int i = 0; i < size; i++) {
-//            if (Objects.equals(o, elementData[i])) {
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
     @Override
     public int lastIndexOf(Object o) {
         if (o == null) {
@@ -253,15 +198,6 @@ public class MyArrayListEnd<E> implements List<E> {
         }
         return -1;
     }
-//    @Override
-//    public int lastIndexOf(Object o) {
-//        for (int i = size - 1; i >= 0; i--) {
-//            if (Objects.equals(o, elementData[i])) {
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
 
     @Override
     public ListIterator<E> listIterator() {
@@ -304,19 +240,6 @@ public class MyArrayListEnd<E> implements List<E> {
         return sb.append(']').toString();
     }
 
-    //    @Override
-//    public String toString() {
-//        return Arrays.toString(Arrays.copyOf(elementData, size));
-//    }
-//
-//    private class Itr implements Iterator<E> {
-//        private int cursor;
-//        private int lastRet = -1;
-//
-//        @Override
-//        public boolean hasNext() {
-//            return cursor < size;
-//        }
     private class Itr implements Iterator<E> {
         private int current = -1;
 
@@ -343,10 +266,6 @@ public class MyArrayListEnd<E> implements List<E> {
             current--;
         }
 
-        @Override
-        public void forEachRemaining(Consumer<? super E> action) {
-            Iterator.super.forEachRemaining(action);
-        }
     }
 
 }
