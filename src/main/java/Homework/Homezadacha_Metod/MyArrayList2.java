@@ -1,10 +1,6 @@
 package Homework.Homezadacha_Metod;
-//package Homework.Praktika_s_Yrij_homework.praktikJurij10022025;
 
 import java.util.*;
-import java.util.function.Consumer;
-
-
 public class MyArrayList2<E> implements List<E> {
 
     private static final int DEFAULT_CAPACITY = 10;
@@ -50,7 +46,7 @@ public class MyArrayList2<E> implements List<E> {
     @Override
     public boolean add(E o) {
         if (size == maxSize) {
-            throw new IllegalArgumentException("List is full. The maximum capacity has been reached.");
+            throw new ListFullException("List is full. The maximum capacity has been reached.");
         }
         ensureCapacity();
         elementData[size++] = o;
@@ -123,7 +119,7 @@ public class MyArrayList2<E> implements List<E> {
     public void add(int index, E element) {
         checkIndexForAdd(index);
         if (size == maxSize) {
-            throw new IllegalArgumentException("List is full. The maximum capacity has been reached.");
+            throw new ListFullException("List is full. The maximum capacity has been reached.");
         }
         ensureCapacity();
         System.arraycopy(elementData, index, elementData, index + 1, size - index);
@@ -177,13 +173,13 @@ public class MyArrayList2<E> implements List<E> {
 
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            throw new InvalidIndexException("Index: " + index + ", Size: " + size);
         }
     }
 
     private void checkIndexForAdd(int index) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            throw new InvalidIndexException("Index: " + index + ", Size: " + size);
         }
     }
 
