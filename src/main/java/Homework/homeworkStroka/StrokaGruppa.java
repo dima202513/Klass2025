@@ -10,20 +10,21 @@ public class StrokaGruppa {
         String[] words = text.split("\\s+");
 
         for (String word : words) {
-            if (!word.isEmpty());
-            char firstLetter = word.charAt(0);
-            groupedWords.putIfAbsent(firstLetter, new TreeMap<>());
-            Map<String, Integer> wordCount = groupedWords.get(firstLetter);
-            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+            if (!word.isEmpty()) {
+                char firstLetter = word.charAt(0);
+                groupedWords.putIfAbsent(firstLetter, new TreeMap<>());
+                Map<String, Integer> wordCount = groupedWords.get(firstLetter);
+                wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
 
 
-        }
-        for (Map.Entry<Character, Map<String, Integer>> entry : groupedWords.entrySet()) {
-            System.out.println(entry.getKey() + ":");
-            for (Map.Entry<String, Integer> wordEntry : entry.getValue().entrySet()) {
-                System.out.println("  " + wordEntry.getKey() + " - " + wordEntry.getValue());
             }
+            for (Map.Entry<Character, Map<String, Integer>> entry : groupedWords.entrySet()) {
+                System.out.println(entry.getKey() + ":");
+                for (Map.Entry<String, Integer> wordEntry : entry.getValue().entrySet()) {
+                    System.out.println("  " + wordEntry.getKey() + " - " + wordEntry.getValue());
+                }
 //      return;  }
+            }
         }
     }
 }
