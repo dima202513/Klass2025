@@ -14,6 +14,7 @@ public class MyArrayListEnd<E> implements List<E> {
         this.maxSize = maxSize;
         elementData = new Object[DEFAULT_CAPACITY];
     }
+
     @Override
     public int size() {
         return size;
@@ -47,16 +48,10 @@ public class MyArrayListEnd<E> implements List<E> {
 
     @Override
     public boolean add(E o) {
-        if (size == maxSize) {
-            throw new IllegalArgumentException("List is full. The maximum capacity has been reached.");
-        }
-        if (size == elementData.length) {
-            elementData = grow();
-
-        }
-        elementData[size++] = o;
+        add(size, o);
         return true;
     }
+
     private Object[] grow() {
         Object[] newArr = new Object[elementData.length * 3 / 2];
         for (int i = 0; i < elementData.length; i++) {
@@ -136,14 +131,14 @@ public class MyArrayListEnd<E> implements List<E> {
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, E element) {
         checkIndexForAdd(index);
         if (size == maxSize) {
             throw new ListFullException("List is full. The maximum capacity has been reached.");
         }
         if (size == elementData.length) {
             elementData = grow();
-
+            size++;
         }
         for (int i = size - 1; i >= index; i--) {
             elementData[i + 1] = elementData[i];

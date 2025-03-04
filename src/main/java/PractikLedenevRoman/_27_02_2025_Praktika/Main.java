@@ -99,6 +99,7 @@ public class Main {
         }
         return letterCountMap;
     }
+
 }
 //1.     В данной строке найти количество цифр.
 //Замените в строке все вхождения 'word' на 'letter'

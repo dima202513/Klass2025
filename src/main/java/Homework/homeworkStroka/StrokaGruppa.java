@@ -3,12 +3,12 @@ package Homework.homeworkStroka;
 import java.util.*;
 
 public class StrokaGruppa {
-    public static void main(String[] args) {
-        String text = "Once upon a time a Wolf was lapping at a spring on a hillside, when, looking up, what should he see but a Lamb just beginning to drink a little lower down.";
+
+    public static void formatText(String text) {
         text = text.toLowerCase().replaceAll("[^a-z ]", "");
+        text = text.toUpperCase().replaceAll("[^A-Z ]", "");
         Map<Character, Map<String, Integer>> groupedWords = new TreeMap<>();
         String[] words = text.split("\\s+");
-
         for (String word : words) {
             if (!word.isEmpty()) {
                 char firstLetter = word.charAt(0);
@@ -23,8 +23,21 @@ public class StrokaGruppa {
                 for (Map.Entry<String, Integer> wordEntry : entry.getValue().entrySet()) {
                     System.out.println("  " + wordEntry.getKey() + " - " + wordEntry.getValue());
                 }
-//      return;  }
             }
         }
+
     }
+
+
+    public static void main(String[] args) {
+        String text = "Once upon a time a Wolf was lapping at a spring on a hillside, when, looking up, what should he see but a Lamb just beginning to drink a little lower down.";
+        formatText(text);
+    }
+
 }
+
+//Программа принимает на вход текст, произвольной длины, обрабатывает его и выводит все слова, которые
+// встречаются в тексте (без дубликатов)
+//* группируя их по первой букве в алфавитном порядке.
+//        * Знаки препинания, кавычки, скобки (кроме апострофа) игнорируются, числа также игнорируются.
+//* Регистр заглавных букв не учитывается. Подсчитать количество вхождений.
