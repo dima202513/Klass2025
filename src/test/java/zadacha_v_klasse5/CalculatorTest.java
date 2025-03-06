@@ -42,13 +42,13 @@ class CalculatorTest {
 
     }
 
-//    @Test
-//    void divideNegativeCase(){
-//        //given
-//        int zero = 0;
-//        //then
-//        Assertions.assertThrows(ArithmeticException.class, () -> calculator.divide(TEN, zero));
+    @Test
+    void divideNegativeCase(){
+        //given
+        int zero = 0;
+        //then
+        Assertions.assertThrows(ArithmeticException.class, () -> calculator.divide(TEN, zero));
     }
 
 
-//}
+}
