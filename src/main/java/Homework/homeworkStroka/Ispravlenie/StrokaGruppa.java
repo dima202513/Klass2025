@@ -4,13 +4,16 @@ import java.util.*;
 public class StrokaGruppa {
 
     public static String formatText(String text) {
-        text = text.toLowerCase().replaceAll("[^a-z ]", "");
+        text = text.toLowerCase().replaceAll("[^a-z]", " ");
+//        text = text.toLowerCase().replaceAll("[^a-z ]", "");
+//      Map<Character, Map<String, Integer>> groupedWords = new LinkedHashMap<>();
         Map<Character, Map<String, Integer>> groupedWords = new TreeMap<>();
         String[] words = text.split("\\s+");
 
         for (String word : words) {
             if (!word.isEmpty()) {
                 char firstLetter = word.charAt(0);
+//                groupedWords.putIfAbsent(firstLetter, new LinkedHashMap<>());
                 groupedWords.putIfAbsent(firstLetter, new TreeMap<>());
                 Map<String, Integer> wordCount = groupedWords.get(firstLetter);
                 wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
