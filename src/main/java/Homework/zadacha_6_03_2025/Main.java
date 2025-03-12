@@ -4,41 +4,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String document = "[User]\n" +
-                "Name: John Smith\n" +
-                "Email: john.smith@example.com\n" +
-                "Phone: +44-7911-123456\n" +
-                "Age: 28\n\n" +
-
-                "[User]\n" +
-                "Name: Emily Johnson\n" +
-                "Email: emily.j@example.co.uk\n" +
-                "Phone: +49-1521-9876543\n" +
-                "Age: 35\n\n" +
-
-                "[User]\n" +
-                "Name: William Brown\n" +
-                "Email: william.brown@mail.net\n" +
-                "Phone: +33-6-12-34-56-78\n" +
-                "Age: 42\n\n" +
-
-                "[User]\n" +
-                "Name: Mike_007\n" +
-                "Email: mike007@website\n" +
-                "Phone: +34-654-321\n" +
-                "Age: 16\n\n" +
-
-                "[User]\n" +
-                "Name: Jessica Davis\n" +
-                "Email: jessica.davis@example.org\n" +
-                "Phone: +31-612345678\n" +
-                "Age: 24\n\n" +
-
-                "[User]\n" +
-                "Name: Thomas Anderson\n" +
-                "Email: thomas@matrix.com\n" +
-                "Phone: +41-78-987-65-43\n" +
-                "Age: 35\n";
+        String document = "[User]\n" + "Name: John Smith\n" + "Email: john.smith@example.com\n" + "Phone: +44-7911-123456\n" + "Age: 28\n\n" +
+"[User]\n" + "Name: Emily Johnson\n" + "Email: emily.j@example.co.uk\n" + "Phone: +49-1521-9876543\n" +  "Age: 35\n\n" +
+ "[User]\n" + "Name: William Brown\n" + "Email: william.brown@mail.net\n" + "Phone: +33-6-12-34-56-78\n" + "Age: 42\n\n" +
+"[User]\n" + "Name: Mike_007\n" + "Email: mike007@website\n" +"Phone: +34-654-321\n" + "Age: 16\n\n" +
+ "[User]\n" + "Name: Jessica Davis\n" + "Email: jessica.davis@example.org\n" + "Phone: +31-612345678\n" + "Age: 24\n\n" +
+"[User]\n" + "Name: Thomas Anderson\n" +"Email: thomas@matrix.com\n" + "Phone: +41-78-987-65-43\n" + "Age: 35\n";
 //        String document = “””
 //[User]
 //        Name: John Smith
