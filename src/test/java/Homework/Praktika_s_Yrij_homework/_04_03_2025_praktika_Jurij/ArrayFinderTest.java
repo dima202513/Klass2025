@@ -52,7 +52,24 @@ class ArrayFinderTest {
     void testGetMaxWhenArrayNegativ(){
 
     }
-//    s null
-//    kogda chisla -
-//    kogda chisla +
+    //s null
+    @Test
+    void testGetMaxWhenArrayIsNull() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> finder.getMax(null));
+    }
+    //    kogda chisla -
+    @Test
+    void testGetMaxWhenArrayHasOnlyNegativeNumbers() {
+        int[] array = {-10, -3, -100, -5};
+        Assertions.assertEquals(-3, finder.getMax(array));
+    }
+    //    kogda chisla +
+    @Test
+    void testGetMaxWhenArrayHasOnlyPositiveNumbers() {
+        int[] array = {1, 2, 3, 100};
+        Assertions.assertEquals(100, finder.getMax(array));
+    }
+//
+
+
 }

@@ -21,6 +21,7 @@ public class ProductService {
         }
         return categoryProductsMap;
     }
+
     public List<Product> getSortedByFinalPrice(List<Product> products) {
         List<Product> result = new ArrayList<>(products);
         Comparator<Product> productComparator = new ProductComparator();
@@ -37,5 +38,13 @@ public class ProductService {
             return sorted;
         }
         return sorted.subList(0, 3);
+    }
+
+    public void checkValidSKU(List<Product> products) {
+        for (Product product : products) {// "ABC-1234"
+            if (!product.getSku().matches("[A-Z]{3}-\\d{4}")) {
+                throw new InvalidSKUExceptions("SKU of " + product.getName() + " is Invalid");
+            }
+        }
     }
 }
