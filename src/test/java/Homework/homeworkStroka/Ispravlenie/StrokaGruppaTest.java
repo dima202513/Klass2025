@@ -53,7 +53,7 @@ public class StrokaGruppaTest {
 
     @Test
     void testDifferentLanguage() {
-        String text = "Привет мир! Hello world!";
+        String text = "Привет мир, мирy мир! Hello world!";
         String expected = "h:\n  hello - 1\nw:\n  world - 1\n";
 
         String actual = StrokaGruppa.formatText(text);
