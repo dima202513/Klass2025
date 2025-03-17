@@ -39,7 +39,7 @@ class testResultTest {
 //
 //        assertNotNull(cheapestTeam, "The cheapest team should not be null.");
 //        assertEquals(100, cheapestTeam.getPrice(), "The price of the cheapest team should be 100.");
-//    }
+//    }  //ne ponimayu pochemy oshibka - oba varianta prohodyat i vibor deshevle po usloviyu, nо метод findCheapestTeam vozvraschaet null, hotya on po logike ne dolzen  davat null.
     @Test
         public void testFindCheapestTeam_NoMatchingSkills() {
             Worker worker1 = new Worker("john");
