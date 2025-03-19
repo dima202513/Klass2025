@@ -20,6 +20,10 @@ public class Worker {
         return skills.contains(skill);
     }
 
+    public Set<Skill> getSkills() {
+        return skills;  // Добавляем этот метод для возвращения всех навыков
+    }
+
     @Override
     public String toString() {
         return "Worker{" +

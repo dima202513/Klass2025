@@ -27,10 +27,13 @@ public class TaskApp {
         System.out.println(team2);
 
         // tender
-        Set<Skill> skillSet = Set.of(Skill.ARCHITECT, Skill.CARPENTER);
-        Tender tender = new Tender(skillSet, "Bibliothek", 120);
+        Map<Skill, Integer> skillSet = new HashMap<>();
+        skillSet.put(Skill.CARPENTER, 1);  // Требуется 1 плотник
+        skillSet.put(Skill.ARCHITECT, 1);  // Требуется 1 архитектор
+        Tender tender = new Tender(skillSet, "Bibliothek");
 
-        // deshevle
+
+//        // deshevle
         List<Team> teams = Arrays.asList(team1, team2);
         Team cheapestTeam = Result.findCheapestTeam(teams, tender);
 

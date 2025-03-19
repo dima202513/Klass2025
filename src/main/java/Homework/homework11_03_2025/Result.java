@@ -1,26 +1,32 @@
 package Homework.homework11_03_2025;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Result {
     public static boolean getMatch(Tender tender, Team team) {
-        Set<Skill> requiredSkills = tender.getSkills();
+        Map<Skill, Integer> skills = tender.getSkills();
         List<Worker> workers = team.getWorkersList();
-        for (Skill skill : requiredSkills) {
-            skill.reset();
+
+        Map<Skill, Integer> skillCounts = new HashMap<>();
+        for (Skill skill : skills.keySet()) {
+            skillCounts.put(skill, 0);
         }
-        //proverka
-        for (Skill skill : requiredSkills) {
-            boolean skillFound = false;
-            for (Worker worker : workers) {
-                if (worker.hasSkill(skill) && !skill.hasBeenChecked()) {
-                    skill.check();
-                    skillFound = true;
-                    break;
+
+        // Подсчитываем, сколько работников имеют нужные навыки
+        for (Worker worker : workers) {
+            for (Skill skill : worker.getSkills()) {
+                if (skills.containsKey(skill)) {
+                    skillCounts.put(skill, skillCounts.get(skill) + 1);
                 }
             }
-            if (!skillFound) {
+        }
+
+        // Проверяем, соответствует ли количество работников требованиям
+        for (Map.Entry<Skill, Integer> entry : skills.entrySet()) {
+            if (skillCounts.get(entry.getKey()) < entry.getValue()) {
                 return false;
             }
         }
@@ -30,21 +36,30 @@ public class Result {
 
     public static Team findCheapestTeam(List<Team> teams, Tender tender) {
         Team cheapestTeam = null;
+
+        // Для каждой команды проверяем, соответствует ли она тендеру
         for (Team team : teams) {
             System.out.println("Checking team: " + team);
             if (getMatch(tender, team)) {
                 System.out.println("Team matched: " + team);
+                // Если команда подходит, проверяем, является ли она самой дешевой
                 if (cheapestTeam == null || team.getPrice() < cheapestTeam.getPrice()) {
                     cheapestTeam = team;
                 }
             }
         }
-        if (cheapestTeam == null) {
-            System.out.println("No team matched the tender requirements");
-        } else {
-            System.out.println("Cheapest team: " + cheapestTeam);
-        }
+
+        // Выводим самую дешевую команду только один раз, если она есть
+//        if (cheapestTeam != null) {
+//            System.out.println("Cheapest team: " + cheapestTeam);
+//        } else {
+//            System.out.println("No team matched the tender requirements");
+//        }
+
         return cheapestTeam;
-    }}
+    }
+}
+
+
 
 //test napisat na result

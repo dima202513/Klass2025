@@ -1,23 +1,17 @@
 package Homework.homework11_03_2025;
 
-import java.util.Set;
+import java.util.Map;
 
 public class Tender {
-
-    private Set<Skill> skills;
-
+    private Map<Skill, Integer> skills;  // Мапа, где навык — это ключ, а значение — количество требуемых специалистов
     private String tenderName;
 
-    private double tenderPrice;
-
-
-    public Tender(Set<Skill> skills, String tenderName, double tenderPrice) {
-        this.skills = skills;
+    public Tender(Map<Skill, Integer> Skills, String tenderName) {
+        this.skills = Skills;
         this.tenderName = tenderName;
-        this.tenderPrice = tenderPrice;
     }
 
-    public Set<Skill> getSkills() {
+    public Map<Skill, Integer> getSkills() {
         return skills;
     }
 
@@ -25,20 +19,14 @@ public class Tender {
         return tenderName;
     }
 
-    public double getTenderPrice() {
-        return tenderPrice;
-    }
-
     @Override
     public String toString() {
         return "Tender{" +
                 "skills=" + skills +
                 ", tenderName='" + tenderName + '\'' +
-                ", tenderPrice=" + tenderPrice +
                 '}';
     }
 }
-
 
 
 
