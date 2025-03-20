@@ -16,12 +16,12 @@ public class Worker {
         }
     }
 
-    public boolean hasSkill(Skill skill) {
-        return skills.contains(skill);
-    }
+//    public boolean hasSkill(Skill skill) {
+//        return skills.contains(skill);
+//    }
 
     public Set<Skill> getSkills() {
-        return skills;  // Добавляем этот метод для возвращения всех навыков
+        return skills;  // + metod dlya vozvrata navikov
     }
 
     @Override

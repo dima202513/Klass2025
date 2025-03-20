@@ -1,7 +1,6 @@
 package Homework.homework11_03_2025;
 
 import java.util.List;
-import java.util.Set;
 import java.util.*;
 
 public class TaskApp {
@@ -12,9 +11,9 @@ public class TaskApp {
         Worker worker4 = new Worker("kostya");
 
         worker1.addSkill(Skill.CARPENTER, Skill.MASTER_OF_CONSTRUCTION_AND_INSTALLATION_WORKS, Skill.ARCHITECT);
-        worker2.addSkill(Skill.SURVEYOR, Skill.PAINTER_PLASTERER);
+        worker2.addSkill(Skill.SURVEYOR, Skill.PAINTER_PLASTERER, Skill.ARCHITECT);
         worker3.addSkill(Skill.ARCHITECT, Skill.CONCRETE_WORKER, Skill.CARPENTER);
-        worker4.addSkill(Skill.ECONOMIST);
+        worker4.addSkill(Skill.ECONOMIST,Skill.CARPENTER);
 
         Team team1 = new Team();
         team1.setPrice(100);
@@ -26,10 +25,11 @@ public class TaskApp {
         System.out.println(team1);
         System.out.println(team2);
 
+
         // tender
         Map<Skill, Integer> skillSet = new HashMap<>();
-        skillSet.put(Skill.CARPENTER, 1);  // Требуется 1 плотник
-        skillSet.put(Skill.ARCHITECT, 1);  // Требуется 1 архитектор
+        skillSet.put(Skill.CARPENTER, 1);
+        skillSet.put(Skill.ARCHITECT, 1);
         Tender tender = new Tender(skillSet, "Bibliothek");
 
 

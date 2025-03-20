@@ -15,7 +15,7 @@ public class Result {
             skillCounts.put(skill, 0);
         }
 
-        // Подсчитываем, сколько работников имеют нужные навыки
+        // podschet rabochich s navikamy
         for (Worker worker : workers) {
             for (Skill skill : worker.getSkills()) {
                 if (skills.containsKey(skill)) {
@@ -24,7 +24,7 @@ public class Result {
             }
         }
 
-        // Проверяем, соответствует ли количество работников требованиям
+        // proverka trebovanij
         for (Map.Entry<Skill, Integer> entry : skills.entrySet()) {
             if (skillCounts.get(entry.getKey()) < entry.getValue()) {
                 return false;
@@ -37,28 +37,28 @@ public class Result {
     public static Team findCheapestTeam(List<Team> teams, Tender tender) {
         Team cheapestTeam = null;
 
-        // Для каждой команды проверяем, соответствует ли она тендеру
+        // komanda == trebovanie
         for (Team team : teams) {
             System.out.println("Checking team: " + team);
             if (getMatch(tender, team)) {
                 System.out.println("Team matched: " + team);
-                // Если команда подходит, проверяем, является ли она самой дешевой
+                // deshevle
                 if (cheapestTeam == null || team.getPrice() < cheapestTeam.getPrice()) {
                     cheapestTeam = team;
                 }
+            } else {
+                System.out.println("Team does not match: " + team);
             }
         }
 
-        // Выводим самую дешевую команду только один раз, если она есть
-//        if (cheapestTeam != null) {
-//            System.out.println("Cheapest team: " + cheapestTeam);
-//        } else {
-//            System.out.println("No team matched the tender requirements");
-//        }
+        if (cheapestTeam != null) {
+            System.out.println("Cheapest team: " + cheapestTeam);
+        } else {
+            System.out.println("No team matched the tender requirements");
+        }
 
         return cheapestTeam;
-    }
-}
+    }}
 
 
 
