@@ -39,22 +39,22 @@ public class Result {
 
         // komanda == trebovanie
         for (Team team : teams) {
-            System.out.println("Checking team: " + team);
+//            System.out.println("Checking team: " + team);
             if (getMatch(tender, team)) {
-                System.out.println("Team matched: " + team);
+//                System.out.println("Team matched: " + team);
                 // deshevle
                 if (cheapestTeam == null || team.getPrice() < cheapestTeam.getPrice()) {
                     cheapestTeam = team;
                 }
             } else {
-                System.out.println("Team does not match: " + team);
+//                System.out.println("Team does not match: " + team);
             }
         }
 
         if (cheapestTeam != null) {
-            System.out.println("Cheapest team: " + cheapestTeam);
+//            System.out.println("Cheapest team: " + cheapestTeam);
         } else {
-            System.out.println("No team matched the tender requirements");
+//            System.out.println("No team matched the tender requirements");
         }
 
         return cheapestTeam;
