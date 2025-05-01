@@ -33,6 +33,15 @@ public class Main3 {
         System.out.println(threeMin);
         System.out.println(threeMax);
 
+//        private static List<Integer> getFirst3Days(List<Map<Integer, List<Integer>>> measurements1) {
+//            return measurements1.stream()
+//                    .flatMap(map -> map.entrySet().stream())
+//                    .filter(entry -> entry.getValue().stream().mapToInt(Integer::intValue).average().orElseThrow() > 0)
+//                    .map(Map.Entry::getKey)
+//                    .limit(3)
+//                    .toList();
+//        }
+//        System.out.println();
     }
 }
 
